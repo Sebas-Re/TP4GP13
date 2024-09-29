@@ -18,18 +18,18 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Alta"
+                android:text="@string/alta"
                 />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Modificacion"
+                android:text="@string/modificacion"
                 />
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Baja"
+                android:text="@string/baja"
                 />
         </com.google.android.material.tabs.TabLayout>
 

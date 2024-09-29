@@ -7,7 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.tp4gp13.fragment.AltaFragment;
 import com.example.tp4gp13.fragment.BajaFragment;
-import com.example.tp4gp13.fragment.ModificacionFragment;;
+import com.example.tp4gp13.fragment.ModificacionFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 

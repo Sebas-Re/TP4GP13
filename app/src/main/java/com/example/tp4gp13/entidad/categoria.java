@@ -1,5 +1,7 @@
 package com.example.tp4gp13.entidad;
 
+import androidx.annotation.NonNull;
+
 public class categoria {
 
     private int id;
@@ -28,6 +30,7 @@ public class categoria {
         this.descripcion = descripcion;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "categoria{" +
