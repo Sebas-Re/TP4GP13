@@ -9,4 +9,6 @@
     <string name="alta">Alta</string>
     <string name="modificacion">Modificacion</string>
     <string name="listado">Listado</string>
+    <string name="input_id_modif">ID del producto a modificar</string>
+    <string name="buscar">Buscar</string>
 </resources>
