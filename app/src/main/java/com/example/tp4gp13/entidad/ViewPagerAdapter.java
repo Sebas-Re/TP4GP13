@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.tp4gp13.fragment.AltaFragment;
-import com.example.tp4gp13.fragment.BajaFragment;
+import com.example.tp4gp13.fragment.ListadoFragment;
 import com.example.tp4gp13.fragment.ModificacionFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
@@ -24,7 +24,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 1:
                 return new ModificacionFragment();
             case 2:
-                return new BajaFragment();
+                return new ListadoFragment();
             default:
                 throw new IllegalStateException("Invalid adapter position");
         }

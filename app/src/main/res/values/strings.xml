@@ -8,5 +8,5 @@
     <string name="categoria">Categoria</string>
     <string name="alta">Alta</string>
     <string name="modificacion">Modificacion</string>
-    <string name="baja">Baja</string>
+    <string name="listado">Listado</string>
 </resources>
