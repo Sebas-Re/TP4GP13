@@ -35,7 +35,7 @@ public class DataMainActivity extends AsyncTask<String, Void, String> {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(DataDB.urlMySQL, DataDB.user, DataDB.pass);
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT articulo.id,articulo.nombre,articulo.stock,articulo.idCategoria FROM articulo ");
+            ResultSet rs = st.executeQuery("SELECT a.id,a.nombre,a.stock,a.idCategoria, b.descripcion FROM articulo a inner join categoria b on b.id=a.idCategoria ");
             result2 = " ";
 
             Articulo articulo;
@@ -47,6 +47,7 @@ public class DataMainActivity extends AsyncTask<String, Void, String> {
 
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("idCategoria"));
+                categoria.setDescripcion(rs.getString("descripcion"));
 
                 articulo.setCategoria(categoria);
                 listaArticulos.add(articulo);

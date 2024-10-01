@@ -36,7 +36,7 @@ public class ArticuloAdapter extends ArrayAdapter<Articulo> {
             tvid.setText(String.valueOf(articulo.getId()));
             tvnombre.setText(articulo.getNombre());
             tvstock.setText(String.valueOf(articulo.getStock()));
-            tvcategoria.setText(articulo.getCategoria() != null ? articulo.getCategoria().getDescripcion() : "Sin categoría");
+            tvcategoria.setText(articulo.getCategoria().getDescripcion());
         }
 
         return convertView;
