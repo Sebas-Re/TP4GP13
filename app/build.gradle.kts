@@ -42,5 +42,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.viewpager2)
     implementation(libs.material.v150)
-    implementation("mysql:mysql-connector-java:8.0.27")
+    implementation("mysql:mysql-connector-java:5.1.26")
 }

@@ -2,14 +2,14 @@ package com.example.tp4gp13.entidad;
 
 import androidx.annotation.NonNull;
 
-public class articulo {
+public class Articulo {
     private int id;
     private String nombre;
     private int stock;
-    private categoria categoria;
+    private Categoria categoria;
 
-    public articulo(){}
-    public articulo(int id, String nombre, int stock, categoria categoria) {
+    public Articulo(){}
+    public Articulo(int id, String nombre, int stock, Categoria categoria) {
         this.id = id;
         this.nombre = nombre;
         this.stock = stock;
@@ -41,22 +41,22 @@ public class articulo {
     }
 
 
-    public categoria getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
     @NonNull
     @Override
     public String toString() {
-        return "articulo{" +
+        return "Articulo{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", stock=" + stock +
-                ", categoria=" + categoria +
+                ", Categoria=" + categoria +
                 '}';
     }
 }
