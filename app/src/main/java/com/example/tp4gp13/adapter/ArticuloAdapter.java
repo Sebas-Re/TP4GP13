@@ -20,26 +20,22 @@ public class ArticuloAdapter extends ArrayAdapter<Articulo> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Reutilizar la vista si es posible
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.item_articulo, parent, false);
         }
 
-        // Obtener los TextViews
         TextView tvid = convertView.findViewById(R.id.idA);
         TextView tvnombre = convertView.findViewById(R.id.nombre);
         TextView tvstock = convertView.findViewById(R.id.stock);
         TextView tvcategoria = convertView.findViewById(R.id.categoria);
 
-        // Obtener el artículo actual
         Articulo articulo = getItem(position);
 
         if (articulo != null) {
             tvid.setText(String.valueOf(articulo.getId()));
             tvnombre.setText(articulo.getNombre());
             tvstock.setText(String.valueOf(articulo.getStock()));
-            // Asegúrate de que la categoría y su descripción no sean null
             tvcategoria.setText(articulo.getCategoria() != null ? articulo.getCategoria().getDescripcion() : "Sin categoría");
         }
 
