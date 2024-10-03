@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class DataModifActivity extends AsyncTask<String, Void, String> {
 
@@ -19,7 +18,7 @@ public class DataModifActivity extends AsyncTask<String, Void, String> {
     private int id;
 
     private static String result2;
-    private static ArrayList<Articulo> listaArticulos = new ArrayList<Articulo>();
+    private Articulo articulo = new Articulo();
 
     public DataModifActivity(Context ct, int id)
     {
@@ -38,9 +37,8 @@ public class DataModifActivity extends AsyncTask<String, Void, String> {
             ResultSet rs = st.executeQuery("SELECT a.id,a.nombre,a.stock,a.idCategoria, b.descripcion FROM articulo a inner join categoria b on b.id=a.idCategoria where a.id="+id);
             result2 = " ";
 
-            Articulo articulo;
             while(rs.next()) {
-                articulo = new Articulo();
+
                 articulo.setId(rs.getInt("id"));
                 articulo.setNombre(rs.getString("nombre"));
                 articulo.setStock(rs.getInt("stock"));
@@ -50,7 +48,6 @@ public class DataModifActivity extends AsyncTask<String, Void, String> {
                 categoria.setDescripcion(rs.getString("descripcion"));
 
                 articulo.setCategoria(categoria);
-                listaArticulos.add(articulo);
             }
             response = "Conexion exitosa";
         }
@@ -66,7 +63,7 @@ public class DataModifActivity extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String response) {
         if (listener != null) {
-            listener.onDataLoaded(listaArticulos);
+            listener.onDataLoaded(articulo);
         }
     }
 

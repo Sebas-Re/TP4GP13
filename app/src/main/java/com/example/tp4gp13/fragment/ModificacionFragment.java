@@ -14,7 +14,6 @@ import com.example.tp4gp13.conexion.DataModifActivity;
 import com.example.tp4gp13.entidad.Articulo;
 import com.example.tp4gp13.interfaces.DataLoadedListener;
 
-import java.util.ArrayList;
 
 
 public class ModificacionFragment extends Fragment implements DataLoadedListener {
@@ -57,9 +56,8 @@ public class ModificacionFragment extends Fragment implements DataLoadedListener
     }
 
     @Override
-    public void onDataLoaded(ArrayList<Articulo> listaArticulos) {
-        if (!listaArticulos.isEmpty()) {
-            Articulo articulo = listaArticulos.get(0);
+    public void onDataLoaded(Articulo articulo) {
+        if (articulo != null) {
             etnombre.setText(articulo.getNombre());
             etstock.setText(String.valueOf(articulo.getStock()));
         }
