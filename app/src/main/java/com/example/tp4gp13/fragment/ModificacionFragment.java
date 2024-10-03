@@ -31,6 +31,7 @@ public class ModificacionFragment extends Fragment implements DataLoadedListener
 
         EditText input_id_modif = view.findViewById(R.id.input_id_modif);
         Button btn_buscar = view.findViewById(R.id.btn_buscar);
+        Button btn_modificar = view.findViewById(R.id.btn_modificar);
         etnombre = view.findViewById(R.id.input_nombre_producto);
         etstock = view.findViewById(R.id.input_stock);
 
@@ -41,6 +42,14 @@ public class ModificacionFragment extends Fragment implements DataLoadedListener
             DataModifActivity DataModifActivity = new DataModifActivity(getActivity(), Integer.parseInt(id));
             DataModifActivity.setDataLoadedListener(this);
             DataModifActivity.execute();
+        });
+
+        btn_modificar.setOnClickListener(v -> {
+            String nombre = etnombre.getText().toString();
+            String stock = etstock.getText().toString();
+
+            // implementar lógica para modificar el artículo
+
         });
 
 
