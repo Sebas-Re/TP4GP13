@@ -7,6 +7,7 @@ public class Articulo {
     private String nombre;
     private int stock;
     private Categoria categoria;
+    private int categoriaId;
 
     public Articulo(){}
     public Articulo(int id, String nombre, int stock, Categoria categoria) {
@@ -45,6 +46,13 @@ public class Articulo {
         return categoria;
     }
 
+    public int getCategoriaId() {
+        return categoriaId;
+    }
+
+    public void setCategoriaId(int categoriaId) {
+        this.categoriaId = categoriaId;
+    }
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
