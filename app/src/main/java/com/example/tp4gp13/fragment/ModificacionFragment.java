@@ -126,8 +126,7 @@ public class ModificacionFragment extends Fragment {
             // Añadir las categorías cargadas a la lista
             listaCategorias.addAll(categorias);
             // Inicializa el adaptador y lo configura con el Spinner
-            adapterCategoria = new CategoriaAdapter(getActivity(), listaCategorias);
-            spinnerCategoria.setAdapter(adapterCategoria);
+            adapterCategoria.notifyDataSetChanged();
         });
         cargarTask.execute();
     }

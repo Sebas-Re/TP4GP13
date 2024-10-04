@@ -16,6 +16,7 @@ public class CategoriaAdapter extends ArrayAdapter<Categoria> {
     public CategoriaAdapter(Context context, List<Categoria> categorias) {
         super(context, 0, categorias);
     }
+    
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
