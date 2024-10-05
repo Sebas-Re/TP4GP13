@@ -58,9 +58,11 @@ public class AltaFragment extends Fragment {
 
             @Override
             public void onAltaFallida(String error) {
-                Toast.makeText(getContext(), "Error al Agregar Articulo: ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Error al Agregar Articulo: " + error, Toast.LENGTH_SHORT).show();
             }
         });
+        //con esta linea mando a ejecutar la funcion doInBackground de DataAltaActivity
+        dataAltaActivity.execute();
     }
 
     private void limpiarCampos() {
