@@ -38,9 +38,9 @@ public class DataAltaActivity extends AsyncTask<Void, Void, Boolean> {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://tu_servidor:puerto/tu_base_de_datos", "usuario", "contraseña");
+            connection = DriverManager.getConnection(DataDB.urlMySQL, DataDB.user, DataDB.pass);
 
-            String query = "INSERT INTO articulos (id, nombre, stock) VALUES (?, ?)";
+            String query = "INSERT INTO articulos (id, nombre, stock) VALUES (?, ?, ?)";
             statement = connection.prepareStatement(query);
             statement.setInt(1, nuevoArticulo.getId());
             statement.setString(2, nuevoArticulo.getNombre());
