@@ -2,6 +2,7 @@ package com.example.tp4gp13.conexion;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.example.tp4gp13.entidad.Articulo;
 import com.example.tp4gp13.entidad.Categoria;
@@ -11,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
 public class DataModifActivity extends AsyncTask<String, Void, String> {
 
     private Context context;
@@ -55,7 +57,7 @@ public class DataModifActivity extends AsyncTask<String, Void, String> {
                 // Si no hay nombre, estamos buscando el artículo
                 ResultSet rs = st.executeQuery("SELECT a.id, a.nombre, a.stock, a.idCategoria, b.descripcion FROM articulo a INNER JOIN categoria b ON b.id = a.idCategoria WHERE a.id = " + id);
 
-                while (rs.next()) {
+                if (rs.next()) {
                     articulo.setId(rs.getInt("id"));
                     articulo.setNombre(rs.getString("nombre"));
                     articulo.setStock(rs.getInt("stock"));
@@ -65,12 +67,15 @@ public class DataModifActivity extends AsyncTask<String, Void, String> {
                     categoria.setDescripcion(rs.getString("descripcion"));
 
                     articulo.setCategoria(categoria);
+                    response = "Artículo cargado correctamente";
+                } else {
+                    // Si no se encontraron resultados
+                    response = "Artículo no encontrado";
                 }
-                response = "Artículo cargado correctamente";
             }
         } catch (Exception e) {
             e.printStackTrace();
-            result2 = "Error en la conexión";
+            result2 = "Error en la conexión: " + e.getMessage();
             response = result2;
         }
         return response;
@@ -78,8 +83,23 @@ public class DataModifActivity extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String response) {
-        if (listener != null) {
-            listener.onDataLoaded(articulo);
+        if (nombre != null) {
+            // Si se hizo una modificación, muestra un mensaje
+            if (response.equals("Artículo actualizado correctamente")) {
+                Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Error al modificar el artículo: " + response, Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            // Para búsqueda
+            if (response.equals("Artículo cargado correctamente")) {
+                if (listener != null) {
+                    listener.onDataLoaded(articulo);
+                }
+            } else {
+                // Mostrar mensaje si no se encontró el artículo
+                Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
