@@ -40,12 +40,15 @@ public class DataAltaActivity extends AsyncTask<Void, Void, Boolean> {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(DataDB.urlMySQL, DataDB.user, DataDB.pass);
 
+            // Consulta SQL para insertar el artículo con id de categoría
             String query = "INSERT INTO articulo (id, nombre, stock, idCategoria) VALUES (?, ?, ?, ?)";
             statement = connection.prepareStatement(query);
+
+            // Asignar los valores de artículo
             statement.setInt(1, nuevoArticulo.getId());
             statement.setString(2, nuevoArticulo.getNombre());
             statement.setInt(3, nuevoArticulo.getStock());
-            statement.setInt(4, 2);
+            statement.setInt(4, nuevoArticulo.getCategoriaId()); // Obtener el ID de la categoría seleccionada
 
             int rowsAffected = statement.executeUpdate();
             return rowsAffected > 0;
